@@ -171,7 +171,6 @@ DEPENDENCIES
   jquery-rails
   pg
   quiet_assets
-  rails (= 4.2.5)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simple_form
@@ -181,4 +180,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.11.2
+   1.13.4
