@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :require_login
+  skip_before_filter :require_login, only: [:new, :create]
 
   # GET /users/new
   def new
@@ -20,10 +20,29 @@ class UsersController < ApplicationController
       else
         format.html { 
           flash[:danger] = @user.errors.full_messages.to_sentence
-          render :new}
+          render :new
+        }
         format.json { render json: @user.errors.full_messages.to_sentence, status: :unprocessable_entity }
       end
     end
+  end
+
+  def my_events
+    @events = current_user.events
+  end
+
+  def publish_event
+    if @event = Event.find_by_id(params[:id])
+      @event.is_published = true
+      if @event.save
+        flash[:success] = 'Published event success.'
+      else
+        flash[:danger] = @event.errors.full_messages.to_sentence
+      end
+    else
+      flash[:danger] = 'Event does not exist.'
+    end
+    redirect_to my_events_path
   end
 
   private
@@ -36,4 +55,4 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, :name)
     end
-end
+  end

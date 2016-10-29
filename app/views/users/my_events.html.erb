@@ -1,0 +1,25 @@
+<div class="container-fluid events-list">
+	<% @events.in_groups_of(3) do |g| %>
+	<div class="row">
+		<% g.compact.each do |event| %>
+		<div class="col-md-6">
+			<%= link_to event_path(event) do %>
+			<div class="card">
+				<img class="card-img-top" src="<%= event.hero_image_url %>">
+				<div class="card-block">
+					<h4 class="card-title"><%= event.name %></h4>
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					<% if event.is_published %>
+						<%= link_to 'Published', publish_event_path(id: event.id), method: 'post', class: 'btn btn-primary disabled' %>
+					<% else %>
+						<%= link_to 'Publish event', publish_event_path(id: event.id), method: 'post', class: 'btn btn-primary' %>
+					<% end %>
+				</div>
+			</div>
+			<% end %>
+		</div>  
+		<% end %>
+	</div>  
+	<% end %>
+</div>
+</div>

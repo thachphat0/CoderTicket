@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
 
   resources :users, only: [:new, :create]
+  get 'my_events' => 'users#my_events'
+  post 'publish_event' => 'users#publish_event'
   root 'events#index'
 
   get 'upcoming' => 'events#index'
