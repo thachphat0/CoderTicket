@@ -13,5 +13,18 @@ RSpec.describe "Events", type: :request do
       expect(response.body).to include "Scorpion in Vietnam"
       expect(response.body).to_not include "Dam Vinh Hung"
     end
+
+    it 'routes /upcoming?search= to events#index' do
+      b = Event.create!(name: "Scorpion in Vietnam", starts_at: 2.days.ago, ends_at: 1.day.from_now, extended_html_description: " a future event",
+                    venue: Venue.new, category: Category.new)
+
+      get root_path(search: "Scorpion")
+      expect(response).to have_http_status(200)
+      expect(response.body).to include "Scorpion in Vietnam"
+
+      get root_path(search: "new event")
+      expect(response).to have_http_status(200)
+      expect(response.body).to_not include "Scorpion in Vietnam"      
+    end
   end
 end
