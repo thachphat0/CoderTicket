@@ -1,10 +1,10 @@
 # Homework 3 - *Phat Ticket*
 
-**Name of your app** is a Ruby on Rails blog application that allows users to create and buy tickets to cool events. 
+**Phat Ticket** is a Ruby on Rails blog application that allows users to create and buy tickets to cool events. 
 
 Submitted by: **Phat Chiem**
 
-Time spent: **X** hours
+Time spent: **20** hours
 
 URL: **http://phat-ticket.herokuapp.com**
 
@@ -20,8 +20,8 @@ The following **required** functionality is complete:
 
 * [x] Users can see a list of upcoming events. Past events should not be shown. **HINT**: Good candidate for a test.
 * [x] Users can search for events from the homepage.
-* [ ] Users can click on an event to see details about the event. 
-* [ ] Users can click on "Book Now" to go to a page to purchase tickets.
+* [x] Users can click on an event to see details about the event. 
+* [x] Users can click on "Book Now" to go to a page to purchase tickets.
 
 #### Tickets
 
@@ -33,8 +33,8 @@ The following **required** functionality is complete:
 
 #### Users
 
-* [ ] User can sign up by providing their email, password, and name. 
-* [ ] User can login using an email and password. 
+* [x] User can sign up by providing their email, password, and name. 
+* [x] User can login using an email and password. 
 * [ ] Users can create events. 
 * [ ] Users must click "publish event" before an event becomes viewable to other users. 
 * [ ] Users can create ticket types for that event. 

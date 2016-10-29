@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap', '~> 4.0.0.alpha1'
 gem 'simple_form'
@@ -46,6 +46,7 @@ group :development, :test do
   gem 'simplecov', :require => false, :group => :test
   gem 'guard-rspec', require: false
   gem 'factory_girl_rails'
+  gem 'capybara'
 end
 
 group :development do

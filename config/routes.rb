@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  get 'login' => 'sessions#new'
+  delete 'logout' => 'sessions#destroy'
+  resources :sessions, only: [:create]
+
+  resources :users, only: [:new, :create]
   root 'events#index'
 
   get 'upcoming' => 'events#index'
