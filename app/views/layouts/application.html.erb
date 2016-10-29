@@ -13,6 +13,9 @@
     <ul class="nav navbar-nav">
       <% if logged_in? %>
       <li class="nav-item">
+        <%= link_to 'Create event', new_event_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
         <%= link_to 'Log out', logout_path, method: 'delete', class: 'nav-link' %>
       </li>
       <% else %>
@@ -32,9 +35,7 @@
     <% end %>
   <% end %>
 
-  <div class="container">
-    <%= yield %>
-  </div>
+  <%= yield %>
 
 </body>
 </html>

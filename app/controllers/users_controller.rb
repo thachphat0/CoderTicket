@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :require_login
 
   # GET /users/new
   def new
@@ -17,7 +18,9 @@ class UsersController < ApplicationController
         format.html { redirect_to root_path, flash: {success: 'User was successfully created.'} }
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new, flash: {notice: @user.errors.full_messages.to_sentence} }
+        format.html { 
+          flash[:danger] = @user.errors.full_messages.to_sentence
+          render :new}
         format.json { render json: @user.errors.full_messages.to_sentence, status: :unprocessable_entity }
       end
     end
