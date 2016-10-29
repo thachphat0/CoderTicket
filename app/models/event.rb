@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   validates_presence_of :extended_html_description, :venue, :category, :starts_at
   validates_uniqueness_of :name, uniqueness: {scope: [:venue, :starts_at]}
 
-  def self.upcoming(search)
+  def self.upcoming(search = '')
   	Event.where('ends_at > ? and lower(name) like ?', Time.now, "%#{search.downcase}%")
   end
 end

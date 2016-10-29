@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :user do
     email "MyString"
-    password_disgest "MyString"
+    password "MyString"
     name "MyString"
   end
 end
