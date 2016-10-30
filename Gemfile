@@ -58,3 +58,4 @@ group :development do
 end
 
 gem 'bootstrap-datepicker-rails'
+gem 'faker'
