@@ -26,7 +26,7 @@ The following **required** functionality is complete:
 #### Tickets
 
 * [x] Each event can have multiple types of tickets, each with a different `price` and `max_quantity`. 
-* [ ] Users can buy tickets to an event, choose the types of tickets, and the quantity of tickets.
+* [x] Users can buy tickets to an event, choose the types of tickets, and the quantity of tickets.
 * [ ] Users cannot buy more tickets than the quantity available.
 * [x] Users can only buy up to 10 of a ticket type at a time.
 * [x] Users cannot buy tickets to events that occur in the past. 
@@ -37,7 +37,7 @@ The following **required** functionality is complete:
 * [x] User can login using an email and password. 
 * [x] Users can create events. 
 * [x] Users must click "publish event" before an event becomes viewable to other users. 
-* [ ] Users can create ticket types for that event. 
+* [x] Users can create ticket types for that event. 
 * [x] Users can create venues.
 * [ ] An event must have at least one `ticket_type` defined before it can be published. 
 * [x] User can see a list of events he or she has created.

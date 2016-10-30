@@ -1,0 +1,16 @@
+<div class="container">
+  
+<h1>Create new ticket type</h1>
+
+<%= simple_form_for [@event, @ticket_type] do |f| %>
+  <%= f.hidden_field :event_id, :value => @event.id %>
+  <%= f.input :name %>
+  <%= f.input :price %>
+  <%= f.input :max_quantity %>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+</div>
