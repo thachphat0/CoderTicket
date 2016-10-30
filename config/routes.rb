@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :ticket_types_users
   get 'login' => 'sessions#new'
   delete 'logout' => 'sessions#destroy'
   resources :sessions, only: [:create]

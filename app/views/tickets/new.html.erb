@@ -17,10 +17,9 @@
       <div class="time-details"> 
         <%= @event.starts_at.strftime('%A, %d %b %Y %l:%M %p') %> 
       </div>
-
-
     </div>
   </div>
+  <%= form_tag(ticket_types_users_path, method: 'post') do %>
   <div class="row">
     <div class="col-md-11 col-md-offset-1">  
       <table class="table">
@@ -32,7 +31,7 @@
         <tr>
           <td> <%= type.name %> </td>
           <td> <%= number_to_currency(type.price, unit: 'VND ', precision: 0) %> </td>
-          <td> <%= select_tag('quantity', options_for_select(0..10)) %></td> 
+          <td> <%= select_tag("quantity-#{type.id}", options_for_select(0..type.available_quantity)) %></td> 
         </tr>
         <% end %> 
       </table>
@@ -40,7 +39,9 @@
   </div>
   <div class="row">
     <div class="col-md-2 col-md-offset-5">
+      <%= hidden_field_tag 'event_id', @event.id %>
       <%= submit_tag 'Buy', class: "btn btn-success btn-lg btn-block" %>
     </div>
   <div>
+  <% end %>
 </div>  

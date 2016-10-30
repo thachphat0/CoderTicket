@@ -6,8 +6,4 @@ class TicketsController < ApplicationController
 			redirect_to root_path
 		end
   end
-
-  def create
-  	raise 'check for ticket post param'
-  end
 end

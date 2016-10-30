@@ -12,7 +12,7 @@ class EventsController < ApplicationController
 
 	def show
 		@event = Event.find(params[:id])
-		if !((@event.is_published || (@event.user_id == current_user.id)) && @event.ends_at > Time.now)
+		if !((@event.is_published || (current_user && @event.user_id == current_user.id)) && @event.ends_at > Time.now)
 			redirect_to root_path
 		end
 	end
