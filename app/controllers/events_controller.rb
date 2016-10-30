@@ -12,7 +12,7 @@ class EventsController < ApplicationController
 
 	def show
 		@event = Event.find(params[:id])
-		if !(@event.is_published && @event.ends_at > Time.now)
+		if !((@event.is_published || (@event.user_id == current_user.id)) && @event.ends_at > Time.now)
 			redirect_to root_path
 		end
 	end
@@ -28,7 +28,7 @@ class EventsController < ApplicationController
 				@event.hero_image_url = 'https://az810747.vo.msecnd.net/eventcover/2015/12/12/78534E.jpg?w=1040&maxheight=400&mode=crop&anchor=topcenter'
 			end
 			if @event.save
-				redirect_to root_path, flash: {success: 'Event created!'}
+				redirect_to my_events_path, flash: {success: 'Event created!'}
 			else
 				flash[:danger] = @event.errors.full_messages.to_sentence
 				render 'new'

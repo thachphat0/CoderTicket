@@ -33,11 +33,15 @@ class UsersController < ApplicationController
 
   def publish_event
     if @event = Event.find_by_id(params[:id])
-      @event.is_published = true
-      if @event.save
-        flash[:success] = 'Published event success.'
+      if @event.ticket_types.blank?
+        flash[:danger] = "Please add at least one ticket type for event #{@event.name}"
       else
-        flash[:danger] = @event.errors.full_messages.to_sentence
+        @event.is_published = true
+        if @event.save
+          flash[:success] = 'Published event success.'
+        else
+          flash[:danger] = @event.errors.full_messages.to_sentence
+        end
       end
     else
       flash[:danger] = 'Event does not exist.'
