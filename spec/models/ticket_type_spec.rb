@@ -4,7 +4,7 @@ RSpec.describe TicketType, type: :model do
 
   describe "#available_quantity" do
 
-	  before(:all) do
+	  before(:each) do
     	@event = FactoryGirl.create(:event, starts_at: 1.day.ago, ends_at: 1.day.from_now)
     	@ticket_type_1 = FactoryGirl.create(:ticket_type, event_id: @event.id)
     	@ticket_type_2 = FactoryGirl.create(:ticket_type, event_id: @event.id, max_quantity: 5)
@@ -19,9 +19,9 @@ RSpec.describe TicketType, type: :model do
       expect(@ticket_type_2.available_quantity).to eq 5
     end
 
-    it "return 8 when there are a user bought 2 tickets" do
-      FactoryGirl.create(:ticket_types_user, ticket_type: @ticket_type_1, user: @user, quantity: 2)
-      expect(@ticket_type_1.available_quantity).to eq 8
+    it "return 3 when there are a ticket type with max quantity = 5, user bought 2 tickets" do
+      FactoryGirl.create(:ticket_types_user, ticket_type: @ticket_type_2, user: @user, quantity: 2)
+      expect(@ticket_type_2.available_quantity).to eq 3
     end
   end
 end
