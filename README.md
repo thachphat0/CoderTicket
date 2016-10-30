@@ -8,7 +8,7 @@ Time spent: **20** hours
 
 URL: **http://phat-ticket.herokuapp.com**
 
-SimpleCov Test Coverage: **Insert percentage or link to report here**
+SimpleCov Test Coverage: **93.6%**
 
 ## User Stories
 
