@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'venues/new'
+
+  get 'venues/create'
+
   get 'login' => 'sessions#new'
   delete 'logout' => 'sessions#destroy'
   resources :sessions, only: [:create]
 
   resources :users, only: [:new, :create]
+  resources :venues, only: [:new, :create]
   get 'my_events' => 'users#my_events'
   post 'publish_event' => 'users#publish_event'
   root 'events#index'

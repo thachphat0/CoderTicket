@@ -1,0 +1,18 @@
+<div class="container">
+	
+	<h1>Create new venue</h1>
+
+	<%= simple_form_for(@venue) do |f| %>
+	<%= f.input :name %>
+	<%= f.input :full_address %>
+	<div class="form-group">
+		<%= f.label :region %>
+		<%= f.collection_select :region_id, Region.all, :id, :name, {prompt: true}, {:class => 'form-control'} %>
+	</div>
+
+	<div class="form-actions">
+		<%= f.button :submit, class: 'btn btn-primary' %>
+	</div>
+	<% end %>
+
+</div>
